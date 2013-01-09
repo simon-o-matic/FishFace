@@ -1,0 +1,25 @@
+{
+  "name": "FishBowl",
+  "version": "1.0",
+  "icons": { "48": "icon.png" },
+  
+  "description": "A financial visualisation in a fish bowl",
+  "browser_action": {
+      "default_title": "FishBowl",
+      "default_icon": "icon.png",
+      "default_popup": "fishbowl.html"
+  },
+  "manifest_version": 2,
+
+  "background": {
+    "scripts": ["background.js"]
+  },
+  
+  "permissions": [
+    "tabs",
+    "http://la-melbourne.myob.myobcorp.net/LA/api/loginToken" ,
+    "http://la-melbourne/LA/api/businesses/9928/generalLedgerReport*",
+    "https://connect.facebook.net/en_US/all.js",
+    "https://www.facebook.com/dialog/oauth*"
+  ]
+}

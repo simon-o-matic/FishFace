@@ -1,0 +1,49 @@
+
+body {
+	width: 500px;
+	height: 500px;
+}
+
+#fish {
+	position:absolute; 
+	top:300px; 
+	left:0px; 
+	width: 100px; 
+	height: 100px;
+	z-index:3;
+	background-size: 100% Auto;
+	background-repeat: no-repeat;
+}
+#castle {
+	position: absolute;
+	height: 280px;
+	width: 200px;
+	left: 170px;
+	top: 240;
+	background-image: url('images/castle.png');
+	background-size:100% 100%;
+	background-repeat:no-repeat;
+	z-index: 2;
+}
+
+#water {
+	position: absolute;
+	width: 500px; 
+	height: 300px; 
+	background-color:lightblue;
+	z-index: 0;
+}
+
+#bowl {
+	position: absolute;
+	width: 500px; 
+	height: 500px; 
+	background-color:blue;
+	
+	border: 2px;
+	border-color: blue;
+}
+
+#login_area {
+	visibility: hidden;
+}
