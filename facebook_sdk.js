@@ -8,15 +8,22 @@ var FacebookAPI = (function() {
 
 	var API_URL 		= "https://graph.facebook.com/me";
 
+	// optional callbacks
+	var tokenExpiredCallback,
+		apiErrorCallback;
+
 	function processApiResponse(data, callback) {
 		if (data.status == 400 ) {
 			console.log("API: Token expire");
-			// TODO: need to re-login here
+			if (tokenExpiredCallback) { 
+				tokenExpiredCallback(data) 
+			}
 		} else if (data.status == 200 ) {
 			console.log("API: all good");
 			callback(JSON.parse(data.responseText));
 		} else {
 			console.log("API: major issue: " + JSON.stringify(data));
+			// TODO: disable API
 		}
 	}
 
@@ -38,6 +45,14 @@ var FacebookAPI = (function() {
 	}
 
 	var me = {
+		setTokenExpiredCallback: function(callback) {
+			tokenExpiredCallback = callback;
+		},
+		
+		setApiErrorCallback: function(callback) {
+			apiErrorCallback = callback;
+		},
+		
 		setToken: function(token) {
 			this.token = token;
 		},
