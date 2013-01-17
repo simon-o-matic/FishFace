@@ -27,7 +27,7 @@ $(document).ready(function() {
 
 function me() {
 	FacebookAPI.me(function(user) {
-		conosle.log("test me: " + JSON.stringify(user));
+		console.log("test me: " + JSON.stringify(user));
 	});
 }
 
