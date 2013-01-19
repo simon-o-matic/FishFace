@@ -23,7 +23,7 @@ var FacebookAPI = (function() {
 			callback(JSON.parse(data.responseText));
 		} else {
 			console.log("API: major issue: " + JSON.stringify(data));
-			// TODO: disable API
+			if (apiErrorCallback) apiErrorCallback(data);
 		}
 	}
 
@@ -48,7 +48,7 @@ var FacebookAPI = (function() {
 		setTokenExpiredCallback: function(callback) {
 			tokenExpiredCallback = callback;
 		},
-		
+
 		setApiErrorCallback: function(callback) {
 			apiErrorCallback = callback;
 		},
